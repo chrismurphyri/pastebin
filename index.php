@@ -1,15 +1,13 @@
 <?
-  require_once 'php-activerecord/ActiveRecord.php';
   require 'vendor/autoload.php';
   date_default_timezone_set('America/New_York');
   
   include_once ("config.php");
   
-  #echo DOC_ROOT;
   ActiveRecord\Config::initialize(function($cfg)
   {
      global $host, $username, $password, $database;
-     $cfg->set_model_directory(DOC_ROOT.'models');
+     $cfg->set_model_directory('models');
      $cfg->set_connections(array(
          'development' => "mysql://$username:$password@$host/$database"));
   });
